@@ -100,21 +100,3 @@
   </script>
 </body>
 </html>
-    setInterval(() => {
-      const now = new Date();
-      if (now.getMinutes() === 0 && now.getSeconds() === 0) {
-        updateCountdown();
-      }
-    }, 1000);
-  </script>
-</body>
-</html>
-    }
-    
-    // 初始化倒计时
-    updateCountdown();
-    // 每秒更新一次
-    setInterval(updateCountdown, 1000);
-  </script>
-</body>
-</html>
