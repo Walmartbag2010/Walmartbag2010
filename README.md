@@ -85,21 +85,17 @@
     </div>
     <div class="target-date">考试时间：2026年6月26日 09:30</div>
     <div class="extra-hours" id="extraHours"></div>
-
     <script>
         // 目标时间：2026年6月26日 09:30:00（注意月份从0开始，5代表6月）
         const targetTime = new Date(2026, 5, 26, 9, 30, 0);
-        
         const daysElement = document.getElementById('days');
         const hoursElement = document.getElementById('hours');
         const minutesElement = document.getElementById('minutes');
         const secondsElement = document.getElementById('seconds');
         const extraHoursElement = document.getElementById('extraHours');
-        
         function updateCountdown() {
             const now = new Date();
             const diffMs = targetTime - now;
-            
             if (diffMs <= 0) {
                 daysElement.textContent = '00';
                 hoursElement.textContent = '00';
@@ -109,25 +105,20 @@
                 document.querySelector('.title').textContent = '中学时代已结束';
                 return;
             }
-            
             const totalSeconds = Math.floor(diffMs / 1000);
             const days = Math.floor(totalSeconds / (3600 * 24));
             const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
             const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
+            const seconds = totalSeconds % 60;           
             // 计算剩余总小时数（向下取整）
-            const totalHours = Math.floor(totalSeconds / 3600);
-            
+            const totalHours = Math.floor(totalSeconds / 3600);  
             daysElement.textContent = days.toString().padStart(2, '0');
             hoursElement.textContent = hours.toString().padStart(2, '0');
             minutesElement.textContent = minutes.toString().padStart(2, '0');
             secondsElement.textContent = seconds.toString().padStart(2, '0');
-            
             // 更新下方小字
             extraHoursElement.textContent = `剩余总小时数：${totalHours} 小时`;
         }
-        
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
